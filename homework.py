@@ -125,6 +125,7 @@ while 10 * 10 ** 214124 >= a >= -10 * 10 ** 214124:
     b = a
     a = int(input('Write a number'))
     print('Max: ',max(a, b))
+    print('Min: ',min(a, b))
 
 #number 4
 c = 11
