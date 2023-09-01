@@ -98,16 +98,6 @@ if year % 4 == 0 or year % 400 == 0:
 else:
     print('Not leap year', year)
 
-
-
-
-
-
-
-
-
-
-'''
 #module 4
 #number 1
 v = 1
@@ -131,7 +121,53 @@ while c >= 0:
 #number 3
 a = int(input('Write a number'))
 b = 0
-while a = 1:
-print('Max: ',max(a, b))
-print('Min: ',min(a, b))
-'''
+while 10 * 10 ** 214124 >= a >= -10 * 10 ** 214124:
+    b = a
+    a = int(input('Write a number'))
+    print('Max: ',max(a, b))
+
+#number 4
+c = 11
+b = random.randint(1,10)
+while c != b:
+    c = int(input('Write a number 1-10'))
+    if c == b:
+        print('Good')
+    elif c > b:
+        print('Much')
+    else:
+        print('Need more')
+
+#number 5
+c = 0
+v = 0
+user1 = '1'
+passw1 = '2'
+while c != 5:
+    user = input('Write a user name')
+    passw = input('Write a password')
+    if user == user1 and passw == passw1:
+        c += 1
+        if user == user1 and passw == passw1 and c == 5:
+            print('Welcome')
+    else:
+        v += 1
+        if v == 5:
+            print('Access denied')
+
+#number 6
+N = int(input('How many random points to generate?'))
+b = 0
+n = 0
+while b != N:
+    import random
+    x = random.uniform(-1, 1)
+    y = random.uniform(-1, 1)
+    if x ** 2 + y ** 2 < 1:
+        n += 1
+        b += 1
+    else:
+        b += 1
+pi = 4 * n / N
+print(pi)
+
