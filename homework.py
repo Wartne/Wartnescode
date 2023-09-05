@@ -1,4 +1,4 @@
-
+'''
 #module 1
 user = (input('What is your name?'))
 user2 = (input('What is your sername?'))
@@ -119,12 +119,15 @@ while c >= 0:
         print('Incorrect value')
 
 #number 3
-a = int(input('Write a number'))
+list = []
+a = int(input('Write a number and -1 to exit the programm'))
 b = 0
-while 10 * 10 ** 214124 >= a >= -10 * 10 ** 214124:
+while a != -1:
+    list.append(a)
     b = a
     a = int(input('Write a number'))
     print('Max: ',max(a, b))
+    print('Min: ',min(a, b))
 
 #number 4
 c = 11
@@ -170,3 +173,35 @@ while b != N:
         b += 1
 pi = 4 * n / N
 print(pi)
+
+
+#module 5
+#number 1
+import random
+b = 0
+x = int(input('How many dice to roll?'))
+for i in range(x):
+    c = random.randint(1, 6)
+    b += c
+print(b)
+
+#number 2
+a = int(input('Write a number'))
+while 10 * 10 ** 214124 >= a >= -10 * 10 ** 214124:
+
+#number 3
+a = int(input('Write a number'))
+if a % a == 0 and a > 1 and a % 2 != 0:
+    print('Number', a, 'is a prime number')
+else:
+    print('Number', a, 'is not a prime number')
+
+#number 4
+words = []
+for i in range(5):
+    word = input('Write a City')
+    words.append(word)
+print("You print this words:")
+for word in words:
+    print(word)
+'''
