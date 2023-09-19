@@ -106,42 +106,50 @@ print("Sum of numbers in a list:", result)
 
 
 #number 5
-mylist = []
-mylist2 = []
-h = 0
-n = int(input('How many numbers will be in the list: '))
-while h != n:
-    a = int(input('Write a number: '))
-    mylist.append(a)
-    h += 1
-mylist_copy = mylist
+def filternumbers():
+    mylist = []
+    mylist2 = []
+    h = 0
+    n = int(input('How many numbers will be in the list: '))
 
-while len(mylist_copy) != 0:
-    b = mylist_copy[0]
-    if b % 2 == 0:
-        mylist2.append(b)
-    mylist_copy = mylist_copy[1:]
-print('Original list', mylist)
-print('Abbreviated list', mylist2)
+    while h != n:
+        a = int(input('Write a number: '))
+        mylist.append(a)
+        h += 1
+    mylist_copy = mylist
+
+    while len(mylist_copy) != 0:
+        b = mylist_copy[0]
+        if b % 2 == 0:
+            mylist2.append(b)
+        mylist_copy = mylist_copy[1:]
+
+    print('Original list:', mylist)
+    print('Filtered list (even numbers only):', mylist2)
+
+filternumbers()
 
 
 
 #number 6
 
-d = int(input('Write a diametr of pizza'))
-cost = int(input('Write a cost of pizza'))
-metr = 3.14 * d ** 2 / 4
-calc1 = metr / cost
+def betterpizzas():
+    d1 = int(input('Write a diameter of the first pizza: '))
+    cost1 = int(input('Write a cost of the first pizza: '))
+    area1 = 3.14 * (d1 ** 2) / 4
+    price_per_unit_area1 = area1 / cost1
 
-d2 = int(input('Write a diametr of second pizza'))
-cost2 = int(input('Write a cost of second pizza'))
-metr2 = 3.14 * d2 ** 2 / 4
-calc2 = metr2 / cost2
+    d2 = int(input('Write a diameter of the second pizza: '))
+    cost2 = int(input('Write a cost of the second pizza: '))
+    area2 = 3.14 * (d2 ** 2) / 4
+    price_per_unit_area2 = area2 / cost2
 
-if calc1 > calc2:
-    print('Second pizza better')
-else:
-    print('First pizza better')
+    if price_per_unit_area1 > price_per_unit_area2:
+        print('The second pizza is a better.')
+    else:
+        print('The first pizza is a better.')
+
+betterpizzas()
 
 #module 7
 #number 1
