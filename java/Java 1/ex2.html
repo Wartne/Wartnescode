@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greeting Example</title>
+</head>
+<body>
+
+  <h1>Greeting Example</h1>
+  <p id="greetingMessage"></p>
+
+  <script>
+    var userAlias = prompt("Please enter your nickname:");
+    var greetingMessage = userAlias ? "Greetings, " + userAlias + "! Enjoy your time on our website." : "You didn't enter a nickname. Please refresh the page and try again.";
+
+    var greetingElement = document.getElementById("greetingMessage");
+    greetingElement.textContent = greetingMessage;
+  </script>
+
+</body>
+</html>

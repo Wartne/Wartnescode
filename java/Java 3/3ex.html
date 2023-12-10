@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Names</title>
+</head>
+<body>
+
+  <h1>Dog Names</h1>
+
+  <script>
+    var dogNames = [];
+
+    for (var i = 1; i <= 6; i++) {
+      var dogName = prompt("Enter the name of dog " + i + ":");
+      dogNames.push(dogName);
+    }
+
+    displayDogNames();
+
+    function displayDogNames() {
+      dogNames.sort(function(a, b) {
+        return b.localeCompare(a);
+      });
+
+      var dogListElement = document.createElement("ul");
+
+      for (var j = 0; j < dogNames.length; j++) {
+        var listItem = document.createElement("li");
+        listItem.textContent = dogNames[j];
+        dogListElement.appendChild(listItem);
+      }
+
+      document.body.appendChild(dogListElement);
+    }
+  </script>
+
+</body>
+</html>

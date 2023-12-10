@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numbers Program</title>
+</head>
+<body>
+
+  <h1>Numbers Program</h1>
+
+  <script>
+    var numbers = [];
+
+    collectNumbers();
+    displayDescendingNumbers();
+
+    function collectNumbers() {
+      var enteredNumber;
+
+      do {
+        var userInput = prompt("Enter a number (enter 0 to stop):");
+        enteredNumber = parseFloat(userInput);
+
+        if (!isNaN(enteredNumber)) {
+          numbers.push(enteredNumber);
+        } else {
+          alert("Invalid input. Please enter a valid number.");
+        }
+      } while (enteredNumber !== 0);
+    }
+
+    function displayDescendingNumbers() {
+      numbers.sort(function(a, b) {
+        return b - a;
+      });
+
+      console.log("Numbers in descending order:");
+      console.log(numbers);
+    }
+  </script>
+
+</body>
+</html>

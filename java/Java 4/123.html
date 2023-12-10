@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Series Search App</title>
+</head>
+<body>
+
+  <h1>TV Series Search</h1>
+
+  <form id="searchForm">
+    <input id="query" name="q" type="text" placeholder="Enter TV series name">
+    <input type="submit" value="Search">
+  </form>
+
+  <div id="searchResults"></div>
+
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var inputValue = document.getElementById("query").value;
+
+      fetch(`https://api.tvmaze.com/search/shows?q=${inputValue}`)
+        .then(response => response.json())
+        .then(data => displaySearchResults(data))
+        .catch(error => console.error('Error:', error));
+    });
+
+    function displaySearchResults(results) {
+      var resultsContainer = document.getElementById("searchResults");
+      resultsContainer.innerHTML = "";
+
+      results.forEach(function(series) {
+        var seriesName = document.createElement("h2");
+        seriesName.textContent = series.show.name;
+
+        var seriesLink = document.createElement("a");
+        seriesLink.href = series.show.url;
+        seriesLink.textContent = "View Details";
+        seriesLink.target = "_blank";
+
+        var seriesImage = document.createElement("img");
+        seriesImage.src = series.show.image ? series.show.image.medium : 'placeholder.jpg';
+        seriesImage.alt = series.show.name;
+
+        var seriesSummary = document.createElement("p");
+        seriesSummary.textContent = series.show.summary || "No summary available.";
+
+        resultsContainer.appendChild(seriesName);
+        resultsContainer.appendChild(seriesLink);
+        resultsContainer.appendChild(seriesImage);
+        resultsContainer.appendChild(seriesSummary);
+        resultsContainer.appendChild(document.createElement("hr"));
+      });
+    }
+  </script>
+
+</body>
+</html>

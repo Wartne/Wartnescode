@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Operations Example</title>
+</head>
+<body>
+
+  <h1>Math Operations Example</h1>
+  <label for="number1">Enter the first integer:</label>
+  <input type="number" id="number1">
+
+  <label for="number2">Enter the second integer:</label>
+  <input type="number" id="number2">
+
+  <label for="number3">Enter the third integer:</label>
+  <input type="number" id="number3">
+
+
+  <button onclick="calculate()">Calculate</button>
+
+
+  <p id="sum"></p>
+  <p id="product"></p>
+  <p id="average"></p>
+  <script>
+    function calculate() {
+      var number1 = parseInt(document.getElementById("number1").value);
+      var number2 = parseInt(document.getElementById("number2").value);
+      var number3 = parseInt(document.getElementById("number3").value);
+
+
+      var sum = number1 + number2 + number3;
+      var product = number1 * number2 * number3;
+      var average = sum / 3;
+
+      var sumElement = document.getElementById("sum");
+      var productElement = document.getElementById("product");
+      var averageElement = document.getElementById("average");
+      sumElement.textContent = "Sum: " + sum;
+      productElement.textContent = "Product: " + product;
+      averageElement.textContent = "Average: " + average;
+    }
+  </script>
+
+</body>
+</html>

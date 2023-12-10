@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participant Names</title>
+</head>
+<body>
+
+  <h1>Participant Names</h1>
+
+  <label for="participantNumber">Enter the number of participants:</label>
+  <input type="number" id="participantNumber">
+  <button onclick="collectParticipantNames()">Submit</button>
+
+  <h2>Participant List</h2>
+  <ol id="participantList"></ol>
+
+  <script>
+    function collectParticipantNames() {
+      var participantNumber = parseInt(document.getElementById("participantNumber").value);
+
+      if (!isNaN(participantNumber) && participantNumber > 0) {
+        var names = [];
+
+        for (var i = 1; i <= participantNumber; i++) {
+          var name = prompt("Enter the name of participant " + i + ":");
+          names.push(name);
+        }
+
+        displayParticipantList(names);
+      } else {
+        alert("Please enter a valid number of participants.");
+      }
+    }
+
+    function displayParticipantList(names) {
+      names.sort();
+      var participantListElement = document.getElementById("participantList");
+      participantListElement.innerHTML = "";
+
+      for (var i = 0; i < names.length; i++) {
+        var listItem = document.createElement("li");
+        listItem.textContent = names[i];
+        participantListElement.appendChild(listItem);
+      }
+    }
+  </script>
+
+</body>
+</html>
