@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Example</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Article Section</h1>
+
+  <section id="articleSection"></section>
+
+  <script>
+    var picArray = [
+      {
+        title: "Article 1",
+        medium_image: "image1.jpg",
+        caption: "chanel product1",
+        description: "This is chanel product"
+      },
+      {
+        title: "Article 2",
+        medium_image: "image2.jpg",
+        caption: "chanel product2",
+        description: "This is chanel product"
+      },
+    ];
+
+    function createArticles() {
+      var section = document.getElementById("articleSection");
+
+      picArray.forEach(function(articleData) {
+        var article = document.createElement("article");
+        article.className = "card";
+
+        // Title
+        var title = document.createElement("h2");
+        title.textContent = articleData.title;
+
+        // Image
+        var figure = document.createElement("figure");
+        var img = document.createElement("img");
+        img.src = articleData.medium_image;
+        img.alt = articleData.title;
+        var figcaption = document.createElement("figcaption");
+        figcaption.textContent = articleData.caption;
+
+        var description = document.createElement("p");
+        description.textContent = articleData.description;
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+
+        article.appendChild(title);
+        article.appendChild(figure);
+        article.appendChild(description);
+        section.appendChild(article);
+      });
+    }
+
+    createArticles();
+  </script>
+
+</body>
+</html>
